@@ -1,27 +1,29 @@
 #include <stdio.h>
 
-void main() {
+int main() {
     printf("Izvēlne");
     
-   int a,b,c;
+   int a;
    printf( "\nIevadi skaitli 1 : ");
 
     a = scanf("%d", &a);
    
    if (a == 1) {
 
-       int upe;
+       char gauja =  (int) "gauja";
+       char upe[50];
+       int result;
        printf("\nAtbilde ir 1.");
        system("clear"); //*nix
        
        printf("Kāda ir garākā upe Latvijā?");
-        upe = scanf("%d", &upe);
-            if (upe == "Gauja") {
+       result = scanf("%s",upe);
+            if (result == gauja) {
                 printf("Pareizi.");
                 return 0;
 
             } else {
-                printf("Nepareizi!");
+                printf("Nepareizi! Atbilde - %s, Upe - %s", gauja, upe);
             }
 
    }
