@@ -2,23 +2,29 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 void sakt();  
 void palidziba();  
 
 int main() {
-        
-        //
-        // funkcijas
-        //
-        
-        //Lai dzēstu ekrānu pēc izvades
-        
+    
 
+     printf("\n -------------------------------------------------------------------------");  
+     printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ******************************* \n");  
+     printf("\n -------------------------------------------------------------------------");  
+     printf("\n\n");  
+     printf("\n                                _.-.____'.                     ");
+     printf("\n                               |  _      _`-.                  ");
+     printf("\n  -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - - - - - - - - - -  ");  
+     printf("\n                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");  
+  
 
+       
+       
+    int chc;  
+    char upe;
   
-       int chc;  
-  
-    printf("Press 1 to start the game\n2 to see game help\n0 to exit :   ");  
+    printf("\nSpied: \n 1 lai sāktu spēli\n 2 lai redzētu spēles pamācību\n 0 lai izietu \n : ");  
     scanf("%d",&chc);  
   
     switch(chc)  {  
@@ -32,15 +38,27 @@ int main() {
   
           default:  
           exit(1);  
-    }  };
+    }  }
 
        
-       
+
+void clearscr() {
+// ja windows
+#ifdef _WIN32
+    system("cls");
+//ja unix, linux vai mac os
+#elif defined(unix) || defined(__unix__) || defined(__unix) || (defined(__APPLE__) && defined(__MACH__))
+    system("clear");
+// ja nav atbalstīts - vai nu nav definēta vai nav atbalstīta
+#else
+    #error "OS nav atbalstīta"
+#endif
+}   
 
 
 
 void sakt () {
-
+    clearscr();
        char upe[10];
        
        printf("Kāda ir garākā upe Latvijā?  \n:");
@@ -53,7 +71,7 @@ void sakt () {
                 printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
                 return 0;
             }
-};
+}
 
 
 
@@ -86,4 +104,5 @@ void palidziba() {
     }  
   
 }  
+
 
