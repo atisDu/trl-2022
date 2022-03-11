@@ -12,7 +12,7 @@ int main() {
      printf("\n\n");  
      printf("\n                                _.-.____'.                     ");
      printf("\n                               |  _      _`-.                  ");
-     printf("\n  -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - -v - - - - - - - -  ");  
+     printf("\n \033[33m -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - - - - - - - - - - \033[0m ");  
      printf("\n                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");  
   
 

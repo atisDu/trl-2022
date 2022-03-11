@@ -11,7 +11,7 @@
       "stopAtEntry": false,
       "cwd": "/home/atis/c-projekts/Spēle",
       "environment": [],
-      "program": "/home/atis/c-projekts/Spēle/build/Release/outRelease",
+      "program": "/home/atis/c-projekts/Spēle/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "/usr/bin/gdb",

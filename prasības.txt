@@ -1,0 +1,101 @@
+
+Spēles “Tūrisma rallijs Liepāja 2022” noteikumi
+
+Vispārīgās prasības:
+
+Uzdevums – izveidot spēli “Tūrisma rallijs Liepāja 2022”, kuras darbība risinās konsolē – spēlē
+notiekošais tiek izvadīts teksta formā un sagaidīta ievade no spēlētāja. Veidojot spēli var izmantot
+jebkuru programmēšanas rīku, kas nodrošina datu ievadi un izvadi teksta formā.
+Spēles scenārijs paredz, ka spēlētājs pārvietojas ar elektroauto, kas bez uzlādes labos laika apstākļos
+spēj nobraukt 140 km, bet lietus laikā 80 km. Spēles autors(-i) nosaka rallija starta punktu,
+kontrolpunktus (tūrisma apskates objektus), elektroauto uzlādes stacijas un to atrašanas GPS
+koordinātes. Rallija starta punkts atrodas netālu no spēles kādas autoru skolām, bet finišs atrodas
+Liepājā. Startā un finišā arī atrodas kontrolpunkti. Katrā kontrolpunktā un uzlādes stacijā spēlētajām
+jāatrisina spēles autora(-u) sagatavotu uzdevumu. Spēlē jāiekļauj vismaz 10 kontrolpunkti (startu un
+finišu ieskaitot).
+
+Veidojamās programmatūras prasības ir formulētas trijās grupās:
+
+• V – vajadzīgās jeb obligātās prasības, ja kāda no V prasībām programmā netiks īstenota,
+komanda vērtējumā saņems soda punktus;
+
+• A – alternatīvas prasības; ja komanda nespēj īstenot kādu V grupas prasību, tad var
+īstenot alternatīvu, kas tiks vērtēta ar zemāku punktu skaitu nekā V prasība;
+
+• P – papildus prasības; komanda tās īsteno atbilstoši savām iespējām un izvēlei; par to
+neizpildi soda punkti netiks piešķirti.
+
+Papildus tiks vērtēts arī programmatūras vizuālais noformējums jeb dizains un komandas radošā
+iniciatīva, t.i., papildus īstenotas spēles programmas funkcijas, kas nav aprakstītas šajās prasībās.
+Piezīme. Konsoles risinājums ir datorprogramma vai to komplekts, kuras datu ievade un izvade
+tiek īstenota teksta formā bez grafiskiem elementiem konsoles logā vai failos. Dialogs starp
+datoru un lietotāju šādā risinājumā tiek īstenots, izmantojot tikai konsoles logu un tastatūru.
+Spēles programmas prasības
+
+V1. Programmas darbības sākumā ekrānā redzams spēles nosaukums, autors(-i), spēles noteikumi un
+norāde par tastatūras taustiņu, kas jāpiespiež, lai sāktu spēli.
+V2. Informāciju par kontrolpunktiem un elektroauto uzlādes stacijām programma nolasa no faila.
+A1. Informācija par kontrolpunktiem un elektroauto uzlādes stacijām ierakstīti programmas
+kodā masīvā vai citā datu struktūrā.
+V3. Programma ekrānā izvada N x N tabulu, kurā redzami attālumi kilometros starp kontrolpunktiem
+un elektroauto uzlādes stacijām; N – kontrolpunktu un elektroauto uzlādes staciju kopējais
+skaits. Tabulas pirmajā rindā ierakstīti datu kolonu identifikatori, piemēram, izmantojot latīņu
+alfabēta pirmos burtus kontrolpunktiem un ciparus elektroauto uzlādes stacijām. Tabulas katra
+datu rindiņa sākas ar kontrolpunkta vai elektroauto uzlādes stacijas identifikatoru. Kolonu un
+rindiņu identifikatori nav tabulas dati. Starp vienas rindiņas diviem simboliem ir vismaz viena
+atstarpe (tukšuma simbols) vai tabulācijas simbols (TAB, /t).
+V4. Ekrānā zem tabulas izvadīts uzaicinājums lietotājam ievadīt ceļojuma nākamā posma galapunktu
+– kontrolpunkta vai uzlādes stacijas identifikatoru. Uzaicinājuma tekstā norādīts tā
+kontrolpunkta vai uzlādes stacijas identifikators, kurā lietotājs atrodas konkrētajā brīdī.
+V5. Programma paziņo par kļūdu, ja lietotājs kā ceļojuma nākamā posma galapunktu ievadījis
+neesošu kontrolpunkta vai uzlādes stacijas identifikatoru vai kontrolpunktu, kurā jau ir būts.
+V6. Programma uzskaita elektroauto akumulatora stāvokli. Spēles sākumā tas ir pilnībā uzlādēts, t.i.,
+uzlādes līmenis ir 100%.
+V7. Spēlētājam, dodoties uz ceļojuma kārtējā posma galapunktu, elektroauto akumulatora uzlādes
+līmenis samazinās atkarībā no pārvietošanās attāluma un laika apstākļiem. Elektroauto
+akumulators nodrošina labos laika apstākļos iespēju nobraukt 140 km, bet lietus laikā 80 km.
+V8. Spēlē laika apstākļus nosaka, izmantojot gadījuma skaitļu ģeneratoru.
+V9. Lietotājs jebkurā spēlē brīdī ekrānā var izlasīt sava elektroauto akumulatora uzlādes līmeni un to,
+cik kilometrus var nobraukt labos laika apstākļos.
+V10. Katrā kontrolpunktā un uzlādes stacijā spēlētajām jāatrisina spēles autora(-u) sagatavots
+uzdevums par vietu, kurā atrodas kontrolpunkts.
+V11.Kontrolpunkta uzdevumus un atbilžu variantus (ja tādi paredzēti) programma nolasa no faila.
+P1. Ir nodrošināta iespēja lietotājam pirms spēles mainīt kontrolpunktu uzdevumus (piemēram,
+skolotājs sagatavo skolēnu grupai jaunus uzdevums spēles atkārtotai izspēlei).
+P2. Katram kontrolpunktam ir sagatavoti vairāki uzdevumi, katrā izspēles reizē programma nejauši
+izvēlas vienu no tiem, t.i., izspēlējot spēli atkārtoti spēlētājam būs jārisina citi uzdevumi.
+V12.Par katru atrisināto uzdevumu spēlētājs saņem bonusa punktus, ko vēlāk var izmantot
+elektroauto uzlādei.
+V13.Pēc katra neveiksmīga mēģinājuma izpildīt kontrolpunkta uzdevumu, samazinās iegūstamo
+bonusa punktu skaits, un lietotājam tiek dota iespēja ievadīt uzdevuma atbildi atkārtoti.
+V14.Spēlētājs nevar pamest kontrolpunktu pirms nav ievadījis pareizu tā uzdevuma atbildi.
+V15.Spēles sākumā spēlētājam tiek piešķirts noteikts bonusa punktu skaits. To daudzumu nosaka
+spēles autors(-i).
+P3. Spēles gaitā spēlētāja rīcībā nevar būt negatīvs skaits bonusa punktu.
+V16.Ja akumulatora uzlādes līmenis sasniedz 0% pirms elektroauto nonācis līdz uzlādes stacijai,
+spēlētājs jāizsauc auto evakuators, t.i.,
+
+a) ekrānā tiek izvadīts paziņojums, ka auto ir apstājies, jo tā akumulators ir izlādējies;
+b) spēlētājam jāievada uzlādes stacijas identifikators, kurp doties;
+c) spēlētāja bonusa punktu skaits samazinās par daudzumu, ko noteicis autors(-i).
+V17.Spēlē iekļauti vismaz 10 kontrolpunkti.
+V18.Ceļojuma pirmais (jeb starta) kontrolpunkts atrodas netālu no skolas, kurā šobrīd mācās kāds no
+spēles autoriem.
+V19.Ceļojuma pēdējais (jeb finiša) kontrolpunkts atrodas Liepājā.
+V20.Pēc sekmīgi izpildīta pēdējā kontrolpunkta uzdevuma ekrānā tiek ierakstīta pateicība par spēli
+un nopelnīto vai atlikušo bonusa punktu daudzums.
+P4. Spēles noslēgumā programma izvada statistikas datus par ceļojumu un elektroauto stāvokli pēc
+autora(-u) ieskatiem.
+P5. Spēles noslēgumā programma izvada reālo laiku minūtēs un sekundēs, cik ilgi spēlētājs pavadījis
+spēlē.
+P6. Spēles noslēgumā spēlētājam tiek pajautāts ievadīt vārdu.
+P7. Spēlētāja vārds un spēles rezultāti (laiks, bonusa punkti u.c.) tiek saglabāti teksta failā vai datu
+bāzē.
+P8. Programma nodrošina lietotājam iespēju apskatīties 10 labākos spēles rezultātus – spēlētāja
+vārds, spēles laiks (minūtēs un sekundes) un bonusa punkti – sakārtotus pēc spēles laika augošā
+secībā.
+P9. Spēlētājam tiek nodrošināta iespēja jebkurā spēles brīdī lasīt spēles noteikumus.
+P10. Spēlē tiek izmantota informācija par ceļojumā patērēto laiku, ievērojot ceļu satiksmes
+noteikumus, t.i., pārvietošanās ātrums ārpus apdzīvotām nepārsniedz 90 km/h, apdzīvotās vietās
+– 50 km/h, kā arī ņemts vērā laiks, ko ceļotāji pavada kontrolpunkta objektu apskatei un auto
+akumulatora uzlādei stacijās (vismaz 30 minūtes).
