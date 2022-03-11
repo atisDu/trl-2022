@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <locale.h>
-void sakt();  
+int sakt();  
 void palidziba();  
 
 int main() {
     
-    setlocale(LC_ALL, "lv_LV.UTF-8");
      printf("\n -------------------------------------------------------------------------");  
      printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ****************** \n");  
      printf("\n -------------------------------------------------------------------------");  
@@ -39,29 +37,6 @@ int main() {
     }  }
 
 
-
-//Sāk spēli
-void sakt () {
-    clearscr();
-       char upe[10];
-       
-       printf("Kāda ir garākā upe Latvijā?  \n:");
-       scanf("%s",upe);
-            if ( strcasecmp( upe, "gauja" ) == 0) {
-                printf("Pareizi.");
-                clearscr();
-                    
-            } else {
-                printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
-                return;
-            }
-
-
-
-
-}
-
-
 // funkcija lai notīrītu ekrānu ( katrai operētājsistēmai ir mazliet savādāka metode)
 void clearscr() {
 // ja windows
@@ -75,6 +50,30 @@ void clearscr() {
     #error "OS nav atbalstīta"
 #endif
 }   
+
+
+//Sāk spēli
+int sakt () {
+     clearscr();
+       char upe[10];
+       
+       printf("Kāda ir garākā upe Latvijā?  \n:");
+       scanf("%s",upe);
+            if ( strcasecmp( upe, "gauja" ) == 0) {
+                printf("Pareizi.");
+                clearscr();
+
+                printf("\nNākamais jautājums:");
+                    
+            } else {
+                printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
+                //return 1;
+            }
+    return 0;
+}
+
+
+
 
 
 
@@ -97,13 +96,12 @@ void palidziba() {
   
     printf("\n Turpināt vai iziet? 1, lai turpinātu, 0, lai izietu \n: ");  
     scanf("%d",&izvele);  
-  
     if(izvele==1) {  
         sakt();  
     }  
     else  {  
         exit(1);  
-    }  
+    }
   
 }  
 
