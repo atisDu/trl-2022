@@ -3,8 +3,9 @@
 #include <stdlib.h>
 int sakt();  
 void palidziba();  
-char jautajumi[4][75] = {"Kur gauja?", "Kur liepāja?", "Kur porziņģis", "Kur Ventspils"};
-char atbildes[4][75] = {"Sigulda", "Liepājā", "ASV", "Ventspilī"};
+char jautajumi[4][20] = {"Kur gauja?", "Kur liepāja?", "Kur porziņģis", "Kur Ventspils"};
+char atbildes[4][20] = {"Sigulda", "Liepājā", "ASV", "Ventspilī"};
+char ievadne[20];
 
 int main() {
     
@@ -53,19 +54,19 @@ void clearscr() {
 #endif
 }   
 
+int a = rand(0-3);
+
+
 int sakt () {
-    for(i = 1; i=< 4; i++ ) {
-        printf("%s", jautajumi[i + 1]);
-
-
-
-
+    printf("%s ", jautajumi[a]);
+    scanf("%s", ievadne);
+    if ( strcasecmp( ievadne, atbildes[1] ) == 0) {
+                printf("Pareizi.");
+                clearscr();
+    } else {
+        printf("Nepareizi! Atbilde - %s, Ievadne - %s", jautajumi[1], ievadne);
     }
-
-
-
 }
-
 //Sāk spēli
 /*int sakt () {
      clearscr();
