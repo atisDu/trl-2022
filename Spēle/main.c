@@ -3,6 +3,8 @@
 #include <stdlib.h>
 int sakt();  
 void palidziba();  
+char jautajumi[4][75] = {"Kur gauja?", "Kur liepāja?", "Kur porziņģis", "Kur Ventspils"};
+char atbildes[4][75] = {"Sigulda", "Liepājā", "ASV", "Ventspilī"};
 
 int main() {
     
@@ -12,7 +14,7 @@ int main() {
      printf("\n\n");  
      printf("\n                                _.-.____'.                     ");
      printf("\n                               |  _      _`-.                  ");
-     printf("\n \033[33m -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - - - - - - - - - - \033[0m ");  
+     printf("\n  -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - - - - - - - - - -  ");  
      printf("\n                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");  
   
 
@@ -51,9 +53,21 @@ void clearscr() {
 #endif
 }   
 
+int sakt () {
+    for(i = 1; i=< 4; i++ ) {
+        printf("%s", jautajumi[i + 1]);
+
+
+
+
+    }
+
+
+
+}
 
 //Sāk spēli
-int sakt () {
+/*int sakt () {
      clearscr();
        char upe[10];
        
@@ -67,10 +81,9 @@ int sakt () {
                     
             } else {
                 printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
-                //return 1;
             }
     return 0;
-}
+} */
 
 
 
