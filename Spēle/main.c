@@ -1,33 +1,31 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-
+#include <locale.h>
 void sakt();  
 void palidziba();  
 
 int main() {
     
-
+    setlocale(LC_ALL, "lv_LV.UTF-8");
      printf("\n -------------------------------------------------------------------------");  
-     printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ******************************* \n");  
+     printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ****************** \n");  
      printf("\n -------------------------------------------------------------------------");  
      printf("\n\n");  
      printf("\n                                _.-.____'.                     ");
      printf("\n                               |  _      _`-.                  ");
-     printf("\n  -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - - - - - - - - - -  ");  
+     printf("\n  -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - -v - - - - - - - -  ");  
      printf("\n                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");  
   
 
        
        
-    int chc;  
-    char upe;
+    int izv;  
   
     printf("\nSpied: \n 1 lai sāktu spēli\n 2 lai redzētu spēles pamācību\n 0 lai izietu \n : ");  
-    scanf("%d",&chc);  
+    scanf("%d",&izv);  
   
-    switch(chc)  {  
+    switch(izv)  {  
         case 1:  
         sakt();  
         break; 
@@ -40,13 +38,36 @@ int main() {
           exit(1);  
     }  }
 
-       
 
+
+//Sāk spēli
+void sakt () {
+    clearscr();
+       char upe[10];
+       
+       printf("Kāda ir garākā upe Latvijā?  \n:");
+       scanf("%s",upe);
+            if ( strcasecmp( upe, "gauja" ) == 0) {
+                printf("Pareizi.");
+                clearscr();
+                    
+            } else {
+                printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
+                return;
+            }
+
+
+
+
+}
+
+
+// funkcija lai notīrītu ekrānu ( katrai operētājsistēmai ir mazliet savādāka metode)
 void clearscr() {
 // ja windows
 #ifdef _WIN32
     system("cls");
-//ja unix, linux vai mac os
+//ja unix - linux, mac os vai citi.
 #elif defined(unix) || defined(__unix__) || defined(__unix) || (defined(__APPLE__) && defined(__MACH__))
     system("clear");
 // ja nav atbalstīts - vai nu nav definēta vai nav atbalstīta
@@ -57,26 +78,7 @@ void clearscr() {
 
 
 
-void sakt () {
-    clearscr();
-       char upe[10];
-       
-       printf("Kāda ir garākā upe Latvijā?  \n:");
-       scanf("%s",upe);
-            if ( strcasecmp( upe, "gauja" ) == 0) {
-                printf("Pareizi.");
-                clearscr();
-
-            } else {
-                printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
-                return 0;
-            }
-}
-
-
-
-
-
+// Spēles pamācība, šobrīd peieejama tikai no galvenā ekrāna, bet vajadzētu implementēt keybindu....
 void palidziba() {  
      
      int izvele;  
