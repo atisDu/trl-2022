@@ -1,10 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h> 
+
 int sakt();  
 void palidziba();  
-char jautajumi[4][20] = {"Kur gauja?", "Kur liepāja?", "Kur porziņģis", "Kur Ventspils"};
-char atbildes[4][20] = {"Sigulda", "Liepājā", "ASV", "Ventspilī"};
+int punkti();
+
+char jautajumi[4][20] = {
+    "Kur gauja?",
+     "Kur liepāja?",
+      "Kur porziņģis",
+       "Kur Ventspils"
+};
+
+char atbildes[4][20] = {
+    "Sigulda",
+     "Liepājā",
+      "ASV",
+       "Ventspilī"
+};
+
 char ievadne[20];
 
 int main() {
@@ -37,7 +53,8 @@ int main() {
   
           default:  
           exit(1);  
-    }  }
+    }
+      }
 
 
 // funkcija lai notīrītu ekrānu ( katrai operētājsistēmai ir mazliet savādāka metode)
@@ -54,19 +71,32 @@ void clearscr() {
 #endif
 }   
 
-int a = rand(0-3);
-
 
 int sakt () {
-    printf("%s ", jautajumi[a]);
+    clearscr();
+    for (int i = 0; i < 4; i++) {
+    printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+    //int rando = rand() % 3 + 0;
+    printf("%s ", jautajumi[i]);
     scanf("%s", ievadne);
-    if ( strcasecmp( ievadne, atbildes[1] ) == 0) {
-                printf("Pareizi.");
+    
+    if ( strcasecmp( ievadne, atbildes[i] ) == 0) {
                 clearscr();
+                printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+                printf("Pareizi. + punkti \n");
+                sleep(1.5);
+                clearscr();
+                int punkti = punkti + 1;
     } else {
-        printf("Nepareizi! Atbilde - %s, Ievadne - %s", jautajumi[1], ievadne);
+        clearscr();
+        printf("Nepareizi!\n"); // \nAtbilde - %s, Ievadne - %s", jautajumi[1], ievadne);
+        sleep(1.5);
+        clearscr();
+    }
     }
 }
+
+
 //Sāk spēli
 /*int sakt () {
      clearscr();
