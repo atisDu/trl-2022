@@ -1,0 +1,6 @@
+{
+    "Sigulda",
+     "Liepājā",
+      "ASV",
+       "Ventspilī"
+};

@@ -5,16 +5,44 @@
 
 int sakt();  
 void palidziba();  
-int punkti();
+int punkti = 0;
+int pareizikontrolpunkti = 0, punktiparpareizikontrolpunktu = 1; 
+int punktiparpareizu = 5;
 
-char jautajumi[4][20] = {
+/*
+int jautajumufails() {
+      FILE *fp;
+  char chunk[400];
+
+  
+   fp = fopen("jautajumi.txt" , "r");
+   if(fp == NULL) {
+      perror("Error opening file");
+      return(-1);
+   }
+   
+   while(fgets(chunk, sizeof(chunk), fp) != NULL) {
+        fputs(chunk, stdout);
+         fputs("\n", stdout);  // marker string used to show where the content of the chunk array has ended
+     }
+   
+   fclose(fp);
+   }
+
+char jautajumi[10][40] = jautajumufails();
+*/
+
+// bi - bez izvēles variantiem ai - ar izvēles variantiem
+ char jautajumibi[10][40] = {
     "Kur gauja?",
      "Kur liepāja?",
       "Kur porziņģis",
        "Kur Ventspils"
 };
 
-char atbildes[4][20] = {
+
+
+char atbildesbi[10][40] = {
     "Sigulda",
      "Liepājā",
       "ASV",
@@ -76,24 +104,30 @@ int sakt () {
     clearscr();
     for (int i = 0; i < 4; i++) {
     printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+    printf("                                                            %d punkti \n", punkti);
     //int rando = rand() % 3 + 0;
-    printf("%s ", jautajumi[i]);
+    printf("%s ", jautajumibi[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildes[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildesbi[i] ) == 0) {
                 clearscr();
+                punkti = punkti + punktiparpareizu;
+                pareizikontrolpunkti = pareizikontrolpunkti + punktiparpareizikontrolpunktu;
                 printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
-                printf("Pareizi. + punkti \n");
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
-                int punkti = punkti + 1;
     } else {
         clearscr();
-        printf("Nepareizi!\n"); // \nAtbilde - %s, Ievadne - %s", jautajumi[1], ievadne);
-        sleep(1.5);
+        printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!");
         clearscr();
     }
+
     }
+    printf("Tu pareizi esi atbildējis uz %d no 10 jautājumiem,\n\n", pareizikontrolpunkti);
 }
 
 
