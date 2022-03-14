@@ -2,6 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h> 
+#include <time.h> 
+
+
 
 int sakt();  
 void palidziba();  
@@ -49,10 +52,27 @@ char atbildesbi[10][40] = {
        "Ventspilī"
 };
 
+char jautajumiai[10][100] = {
+    "Kurā gadā tika dibināta liepāja?\n A - 1625, B - 394, C - 1624, D - 1854",
+    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4",
+    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4"
+};
+
+char atbildesai[10][100] = {
+    "A",
+    "B",
+    "C"
+};
+
 char ievadne[20];
 
 int main() {
-    
+
+    // Sāk laika uzskaiti
+    time_t start_t, end_t;
+   int diff_t;
+   time(&start_t);
+
      printf("\n -------------------------------------------------------------------------");  
      printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ****************** \n");  
      printf("\n -------------------------------------------------------------------------");  
@@ -82,6 +102,15 @@ int main() {
           default:  
           exit(1);  
     }
+
+    //beidz laika uzskaiti
+    time(&end_t);
+    diff_t = difftime(end_t, start_t);
+    if (diff_t >= 60) {
+    printf("Tu spēlē pavadīji %d sekundes  \n", diff_t);
+    } 
+    
+    return 0;
       }
 
 
@@ -103,7 +132,7 @@ void clearscr() {
 int sakt () {
     clearscr();
     for (int i = 0; i < 4; i++) {
-    printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
     //int rando = rand() % 3 + 0;
     printf("%s ", jautajumibi[i]);
@@ -113,43 +142,58 @@ int sakt () {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizikontrolpunkti = pareizikontrolpunkti + punktiparpareizikontrolpunktu;
-                printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
                 printf("                                                            %d punkti \n", punkti);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
     } else {
         clearscr();
-        printf("                                                    Kontrolpunkti:%d/10\n", i + 1);
+        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
         printf("                                                            %d punkti \n", punkti);
-        printf("Nepareizi!");
+        printf("Nepareizi!\n");
         clearscr();
     }
-
-    }
-    printf("Tu pareizi esi atbildējis uz %d no 10 jautājumiem,\n\n", pareizikontrolpunkti);
 }
 
+printf("** Pirmās daļas beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d no 20 punktiem\n", punkti);
+printf("Tu šobrīd pareizi esi atbildējis uz %d no 4 jautājumiem,\n\n", pareizikontrolpunkti);
+sleep(7);
 
-//Sāk spēli
-/*int sakt () {
-     clearscr();
-       char upe[10];
-       
-       printf("Kāda ir garākā upe Latvijā?  \n:");
-       scanf("%s",upe);
-            if ( strcasecmp( upe, "gauja" ) == 0) {
-                printf("Pareizi.");
+// Sākas otrā daļa ar variantiem.
+      clearscr();
+    for (int i = 0; i < 3; i++) {
+    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+    printf("                                                            %d punkti \n", punkti);
+    //int rando = rand() % 3 + 0;
+    printf("%s ", jautajumiai[i]);
+    scanf("%s", ievadne);
+    
+    if ( strcasecmp( ievadne, atbildesai[i] ) == 0) {
                 clearscr();
+                punkti = punkti + punktiparpareizu;
+                pareizikontrolpunkti = pareizikontrolpunkti + punktiparpareizikontrolpunktu;
+                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        clearscr();
+    }
+}
 
-                printf("\nNākamais jautājums:");
-                    
-            } else {
-                printf("Nepareizi! Atbilde - gauja, Upe - %s", upe);
-            }
-    return 0;
-} */
+printf("** Otrās daļas beigas! **\n\n");
+printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizikontrolpunkti);
+sleep(7);
 
+}
 
 
 
