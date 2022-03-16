@@ -1,13 +1,41 @@
+/*                            ___  
+ _      _____  _____ ______   ___     ___   ___   _____                          
+| |    |_   _||  ___|| ___ \ / _ \   |_  | / _ \ /  ___|                         
+| |      | |  | |__  | |_/ // /_\ \    | |/ /_\ \\ `--.                          
+| |      | |  |  __| |  __/ |  _  |    | ||  _  | `--. \                         
+| |____ _| |_ | |___ | |    | | | |/\__/ /| | | |/\__/ /                         
+\_____/ \___/ \____/ \_|    \_| |_/\____/ \_| |_/\____/                          
+                                                                                 
+        _____                                                                         
+ _____  _   _ ______  _____  _____ ___  ___  ___                                 
+|_   _|| | | || ___ \|_   _|/  ___||  \/  | / _ \                                
+  | |  | | | || |_/ /  | |  \ `--. | .  . |/ /_\ \                               
+  | |  | | | ||    /   | |   `--. \| |\/| ||  _  |                               
+  | |  | |_| || |\ \  _| |_ /\__/ /| |  | || | | |                               
+  \_/   \___/ \_| \_| \___/ \____/ \_|  |_/\_| |_/                               
+                                                                                 
+                                                                                 
+______   ___   _      _      _____    ___  _____      _____  _____  _____  _____ 
+| ___ \ / _ \ | |    | |    |_   _|  |_  |/  ___|    / __  \|  _  |/ __  \/ __  \
+| |_/ // /_\ \| |    | |      | |      | |\ `--.     `' / /'| |/' |`' / /'`' / /'
+|    / |  _  || |    | |      | |      | | `--. \      / /  |  /| |  / /    / /  
+| |\ \ | | | || |____| |____ _| |_ /\__/ //\__/ /    ./ /___\ |_/ /./ /___./ /___
+\_| \_|\_| |_/\_____/\_____/ \___/ \____/ \____/     \_____/ \___/ \_____/\_____/
+
+*/
+
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h> 
 #include <time.h> 
+#include "jautajumi_un_atbildes.h"
 
+int karte_plans();
 
-int karte_plān;
-
-int kontrolpunkts1(), kontrolpunkts2(), kontrolpunkts3(), kontrolpunkts4(), kontrolpunkts5(), kontrolpunkts6(), kontrolpunkts7();
+int kontrolpunkts1(), kontrolpunkts2(), kontrolpunkts3(), kontrolpunkts4(), kontrolpunkts5(), kontrolpunkts6(), kontrolpunkts7(), kontrolpunkts8(), kontrolpunkts9(), kontrol;
 
 int palidzība();
 
@@ -16,111 +44,6 @@ int pareizi_kp = 0, punktiparpareizukontrolpunktu = 1;
 int punktiparpareizu = 5;
 int nobrauktie_km;
 int km;
-
-// Bez izvēles variantiem
- char jautajumibi1[10][40] = {
-    "Kur gauja?",
-     "Kur liepāja?",
-      "Kur porziņģis",
-       "Kur Ventspils"
-};
-
-
-
-char atbildesbi1[10][40] = {
-    "Sigulda",
-     "Liepājā",
-      "ASV",
-       "Ventspilī"
-};
-//
-char jautajumibi2[10][40] = {
-    "Kur gaujaaa?",
-     "Kur liepājaaa?",
-      "Kur porziņģisss",
-       "Kur Ventspilsss"
-};
-
-
-
-char atbildesbi2[10][40] = {
-    "Sigulda",
-     "Liepājā",
-      "ASV",
-       "Ventspilī"
-};
-//
-// Beidzas sadaļa
-// 
-
-
-// Ar izvēles variantiem
-char jautajumiai1[10][100] = {
-    "Kurā gadā tika dibināta liepāja?\n A - 1294, B - 1536, C - 1625, D - 1754",
-    "Kāds ir Liepājas himnas nosaukums? Liepāja ir pilsēta kurā __\n A - jūra saplūst ar debesīm, B - piedzimst vējš, C - jūra iekš zemē"
-};
-
-char atbildesai1[10][100] = {
-    "C",
-    "B",
-};
-//
-char jautajumiai2[10][100] = {
-    "Kāds ir Liepājas himnas autors?\n A - I. Kalniņš, B - E. Dārziņš, C - R. Pauls, D - A. Ašmanis"
-    "Kāds ir Liepājas leilākās koncertzāles nosaukums?\n A - Lielā Skuja, B - Dzintarmols , C - Jūraszāle, D - Lielais Dzintars, E - Lielais Kristaps",
-    "Kurā gadā tika uzcelta šī koncertzāle?\n A - 2011, B - 2014, C - 2015, D - 2018",
-    "Liepājas Svētās Trīsvienības katedrālē atrodas pasaulē lielākās mehāniskās ērģeles, cik stabuļu ir šīm ērģelēm?\n A - 1, B - 2, C - 3, D - 4"
-};
-
-char atbildesai2[10][100] = {
-    "A",
-    "D",
-    "C"
-};
-//
-char jautajumiai3[10][100] = {
-    "Kurā gadā tika dibināta liepāja?\n A - 1625, B - 394, C - 1624, D - 1854",
-    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4",
-    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4"
-};
-
-char atbildesai3[10][100] = {
-    "A",
-    "B",
-    "C"
-};
-//
-char jautajumiai4[10][100] = {
-    "Kurā gadā tika dibināta liepāja?\n A - 1625, B - 394, C - 1624, D - 1854",
-    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4",
-    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4"
-};
-
-char atbildesai4[10][100] = {
-    "A",
-    "B",
-    "C"
-};
-//
-
-char jautajumiai5[10][100] = {
-    "Kurā gadā tika dibināta liepāja?\n A - 1625, B - 394, C - 1624, D - 1854",
-    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4",
-    "balahaahhahahha?\n A - 1, B - 2, C - 3, D - 4"
-};
-
-char atbildesai5[10][100] = {
-    "A",
-    "B",
-    "C"
-};
-//
-//Beidzas sadaļa
-// 
-
-
-
-
 
 
 char ievadne[20];
@@ -136,22 +59,22 @@ int main() {
      printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ****************** \n  ");  
      printf("\n -------------------------------------------------------------------------       ");  
      printf("\n\n");  
-     printf("\n                                _.-.____'.                                       ");
-     printf("\n                               |  _      _`-.                                    ");
-     printf("\n  -  -  -  -  -  -  -  -  -  - '-(_)----(_)--` - - - - - - - - - - - - - - -     ");  
-     printf("\n                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");  
-  
+     printf("\n        _    ___  ________      _          __    _<_                             ");
+     printf("\n         _-_- |_/|___|___`._         _-_-  _____|___`._                          ");
+     printf("\n       _-_-__  / ,-. -|-  ,-.`-.    _-____ / ,-. -|-  ,-.`-.                     ");  
+     printf("\n          _-_- `( o )----( o )-'      _-_- `( o )----( o )-'                     ");  
+    printf("\n                                                                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");
 
        
        
     int izv;  
   
-    printf("\nSpied: \n 1 lai sāktu spēli\n 2 lai redzētu spēles pamācību\n 0 lai izietu \n : ");  
+    printf("\nSpied: \n 1 lai sāktu spēli\n 2 lai redzētu spēles pamācību, noteikumus\n 0 lai izietu \n : ");  
     scanf("%d",&izv);  
   
     switch(izv)  {  
         case 1:  
-        kontrolpunkts1();  
+        karte_plans();  
         break; 
   
         case 2:         
@@ -187,16 +110,67 @@ void clearscr() {
 #endif
 }   
 
+int karte_plans() {
+     printf("\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ");
+     printf("\n┃----------------------------------------------------------------------------┃");  
+     printf("\n┃********************************** Karte ***********************************┃");  
+     printf("\n┃----------------------------------------------------------------------------┃");   
+     printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
+     printf("\n┃           *  /             _/     ^___/   /                          `^    ┃");
+     printf("\n┃             |           __/              |                             |   ┃");  
+     printf("\n┃              ^___  ____/          .*    |                              |   ┃");  
+     printf("\n┃                _||                      /     ___________            _/    ┃");
+     printf("\n┃               / /                       |___/             ^        /       ┃");  
+     printf("\n┃              /_/                       /                  ^   ___/         ┃");  
+     printf("\n┃                                       |                    ^_/   |         ┃");
+     printf("\n┃                    .        *          |                          |_       ┃");  
+     printf("\n┃                __/  |                  |                            `      ┃");  
+     printf("\n┃             __/      `_                |                            |      ┃");
+     printf("\n┃ Ventspils /X            `              |                             |     ┃");  
+     printf("\n┃          /  |` _   Talsi `_            |                              |    ┃");                                                            
+     printf("\n┃         |    |  ` X__       `          /                               `_  ┃");  
+     printf("\n┃         |     |      `       `        /   __X Sigulda                    | ┃");  
+     printf("\n┃       /Kuldīga X      X Tukums` _____/  _/                               | ┃");
+     printf("\n┃     /           |     `_       _X______/                                  |┃");  
+     printf("\n┃    |             `     `_     /  Rīga                                    | ┃");  
+     printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃");
+     printf("\n┃   |X_________/  Saldus       Jelgava       ^                              |┃");  
+     printf("\n┃   |                                      /  ^                            | ┃");
+     printf("\n┃   |          _________ ___________  ____/     ^___                      |__┃");  
+     printf("\n┃   |      _/ `         `           ``              `__                 _/  ^┃");
+     printf("\n┃    |  __/                                            `__             /     ┃");  
+     printf("\n┃    |_/                                                   `___   ___/       ┃");  
+     printf("\n┃    |                                                         `|`           ┃ \n\n1");
+
+    int izv;
+
+    printf("\nSpied: \n 1 lai\n 2 lai redzētu spēles pamācību\n 0 lai izietu \n : ");  
+    scanf("%d",&izv);  
+  
+    switch(izv)  {  
+        case 1:  
+        karte_plans();  
+        break; 
+  
+        case 2:         
+        palidzība();  
+        break;  
+  
+          default:  
+          exit(1);  
+    }
+
+}
 
 int kontrolpunkts1 () {
     clearscr();
     for (int i = 0; i < 4; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumiai1[i]);
+    printf("%s ", jautajumi_liepaja[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesai1[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_liepaja[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -216,7 +190,7 @@ int kontrolpunkts1 () {
 
 printf("** Pirmā kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d no 20 punktiem\n", punkti);
-printf("Tu šobrīd pareizi esi atbildējis uz %d no 4 jautājumiem,\n\n", pareizi_kp);
+printf("Tu šobrīd pareizi esi atbildējis uz %d no 4 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
@@ -227,10 +201,10 @@ int kontrolpunkts2 () {
     for (int i = 0; i < 3; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumibi1[i]);
+    printf("%s ", jautajumi_kultura1[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesbi1[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_kultura1[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -250,7 +224,7 @@ int kontrolpunkts2 () {
 
 printf("** Otrās kontrolpunkta beigas! **\n\n");
 printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
-printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizi_kp);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
@@ -261,10 +235,10 @@ int kontrolpunkts3 () {
     for (int i = 0; i < 3; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumiai2[i]);
+    printf("%s ", jautajumi_muzika1[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesai2[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_muzika1[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -284,7 +258,7 @@ int kontrolpunkts3 () {
 
 printf("** trešā kontrolpunkta beigas! **\n\n");
 printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
-printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizi_kp);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
@@ -295,10 +269,10 @@ int kontrolpunkts4 () {
     for (int i = 0; i < 3; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumiai3[i]);
+    printf("%s ", jautajumi_sports1[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesai3[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_sports1[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -318,7 +292,7 @@ int kontrolpunkts4 () {
 
 printf("** Ceturtā kontrolpunkta beigas! **\n\n");
 printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
-printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizi_kp);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
@@ -329,10 +303,10 @@ int kontrolpunkts5 () {
     for (int i = 0; i < 3; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumibi2[i]);
+    printf("%s ", jautajumi_karosta1[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesbi2[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_karosta1[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -352,7 +326,7 @@ int kontrolpunkts5 () {
 
 printf("** Piektā kontrolpunkta beigas! **\n\n");
 printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
-printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizi_kp);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
@@ -363,10 +337,10 @@ int kontrolpunkts6 () {
     for (int i = 0; i < 3; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumiai4[i]);
+    printf("%s ", jautajumi_muzika2[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesai4[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_muzika2[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -386,7 +360,7 @@ int kontrolpunkts6 () {
 
 printf("** Otrās kontrolpunkta beigas! **\n\n");
 printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
-printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizi_kp);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
@@ -397,10 +371,10 @@ int kontrolpunkts7 () {
     for (int i = 0; i < 3; i++) {
     printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
     printf("                                                            %d punkti \n", punkti);
-    printf("%s ", jautajumiai5[i]);
+    printf("%s ", jautajumi_daba[i]);
     scanf("%s", ievadne);
     
-    if ( strcasecmp( ievadne, atbildesai5[i] ) == 0) {
+    if ( strcasecmp( ievadne, atbildes_daba[i] ) == 0) {
                 clearscr();
                 punkti = punkti + punktiparpareizu;
                 pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
@@ -420,13 +394,146 @@ int kontrolpunkts7 () {
 
 printf("** Septītā kontrolpunkta beigas! **\n\n");
 printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
-printf("Tu pareizi esi atbildējis uz %d no 7 jautājumiem,\n\n", pareizi_kp);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
 sleep(7);
 
 }
 
+// Sākas astotā daļa ar variantiem.
+int kontrolpunkts8 () {
+      clearscr();
+    for (int i = 0; i < 3; i++) {
+    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_daba[i]);
+    scanf("%s", ievadne);
+    
+    if ( strcasecmp( ievadne, atbildes_daba[i] ) == 0) {
+                clearscr();
+                punkti = punkti + punktiparpareizu;
+                pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
+                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        clearscr();
+    }
+}
 
+printf("** Septītā kontrolpunkta beigas! **\n\n");
+printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
+sleep(7);
 
+}
+
+// Sākas septītā daļa ar variantiem.
+int kontrolpunkts9 () {
+      clearscr();
+    for (int i = 0; i < 3; i++) {
+    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_kultura2[i]);
+    scanf("%s", ievadne);
+    
+    if ( strcasecmp( ievadne, atbildes_kultura2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + punktiparpareizu;
+                pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
+                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        clearscr();
+    }
+}
+
+printf("** Septītā kontrolpunkta beigas! **\n\n");
+printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
+sleep(7);
+
+}
+
+// Sākas septītā daļa ar variantiem.
+int kontrolpunkts10 () {
+      clearscr();
+    for (int i = 0; i < 3; i++) {
+    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_sports2[i]);
+    scanf("%s", ievadne);
+    
+    if ( strcasecmp( ievadne, atbildes_sports2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + punktiparpareizu;
+                pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
+                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        clearscr();
+    }
+}
+
+printf("** Septītā kontrolpunkta beigas! **\n\n");
+printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
+sleep(7);
+
+}
+
+// Sākas septītā daļa ar variantiem.
+int kontrolpunkts11 () {
+      clearscr();
+    for (int i = 0; i < 3; i++) {
+    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_karosta2[i]);
+    scanf("%s", ievadne);
+    
+    if ( strcasecmp( ievadne, atbildes_karosta2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + punktiparpareizu;
+                pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
+                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        clearscr();
+    }
+}
+
+printf("** Septītā kontrolpunkta beigas! **\n\n");
+printf("Tavs punktu skaits ir %d no 35 punktiem\n", punkti);
+printf("Tu pareizi esi atbildējis uz %d no 7 jautajumiem,\n\n", pareizi_kp);
+sleep(7);
+
+}
 
 
 // Spēles pamācība, šobrīd peieejama tikai no galvenā ekrāna, bet vajadzētu implementēt keybindu....
@@ -438,8 +545,8 @@ int palidzība () {
      printf("\n -------------------------------------------------------------------------");  
      printf("\n .................... Spēle (aizvietot)...........\n");  
      printf("\n >> Spēlē ir tūrisma apskates punkti un uzlādes stacijas, kurās ir jātbild uz jautājumu, lai uzlādētu elektroauto un tiktu tālāk. \n");
-     printf("\n >> Uz jautājumiem ir jāatbild vai nu apskates objektos vai uzlādes stacijās. \n");
-     printf("\n >> Uz jautājumiem jāatbild ievadot atbildi vai atbildes ciparu, ja dotas. \n"); 
+     printf("\n >> Uz jautajumiem ir jāatbild vai nu apskates objektos vai uzlādes stacijās. \n");
+     printf("\n >> Uz jautajumiem jāatbild ievadot atbildi vai atbildes ciparu, ja dotas. \n"); 
      printf("\n >> Pēc katras otrās uzlādes stacijas ir iespējama laikapstākļu maiņa. \n");  
      printf("\n >> Elektroauto bez uzlādes saulainos vai mākoņainos laikapstākļos spēj nobraukt 140 km un lietainos vai vētrainos spēj nobraukt 80 km");  
   
@@ -449,7 +556,7 @@ int palidzība () {
     printf("\n Turpināt vai iziet? 1, lai turpinātu, 0, lai izietu \n: ");  
     scanf("%d",&izvele);  
     if(izvele==1) {  
-        kontrolpunkts1();  
+        karte_plans();  
     }  
     else  {  
         exit(1);  
