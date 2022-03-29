@@ -33,7 +33,7 @@ ______   ___   _      _      _____    ___  _____      _____  _____  _____  _____
 #include <time.h> 
 #include "jautajumi_un_atbildes.h"
 
-int karte_plans();
+int karte_plans(), edit();
 
 int kontrolpunkts1(), kontrolpunkts2(), kontrolpunkts3(), kontrolpunkts4(), kontrolpunkts5(), kontrolpunkts6(), kontrolpunkts7(), kontrolpunkts8(), kontrolpunkts9(), kontrol;
 
@@ -58,18 +58,18 @@ int main() {
      printf("\n -------------------------------------------------------------------------       ");  
      printf("\n\n ************************* Tūrisma rallijs Liepāja 2022 ****************** \n  ");  
      printf("\n -------------------------------------------------------------------------       ");  
-     printf("\n\n");  
-     printf("\n        _    ___  ________      _          __    _<_                             ");
-     printf("\n         _-_- |_/|___|___`._         _-_-  _____|___`._                          ");
-     printf("\n       _-_-__  / ,-. -|-  ,-.`-.    _-____ / ,-. -|-  ,-.`-.                     ");  
-     printf("\n          _-_- `( o )----( o )-'      _-_- `( o )----( o )-'                     ");  
-    printf("\n                                                                                                              Veidoja: Atis Dubrovskis un Kārlis Ulmis");
-
+     printf("\n\n                                                                               ");  
+     printf("\n        _    ___  ________                                                       ");
+     printf("\n         _-_- |_/|___|___`._                                                     ");
+     printf("\n       _-_-__  / ,-. -|-  ,-.`-.         - _  -  - _<_                           ");  
+     printf("\n          _-_- `( o )----( o )-'        _-_-  _____|___`._                       ");  
+     printf("\n- - - - - - - - - - - - - - - - - - -_-____ / ,-. -|-  ,-.`-. - - - - - - - -   Veidoja: Atis Dubrovskis un Kārlis Ulmis");
+     printf("\n                                       _-_- `( o )----( o )-'                     ");
        
        
     int izv;  
   
-    printf("\nSpied: \n 1 lai sāktu spēli\n 2 lai redzētu spēles pamācību, noteikumus\n 0 lai izietu \n : ");  
+    printf("\nSpied: \n 1, lai sāktu spēli\n 2, lai redzētu spēles pamācību, 3, lai izveidotu savus jautājumus un atbildes\n 0 lai izietu \n : ");  
     scanf("%d",&izv);  
   
     switch(izv)  {  
@@ -80,7 +80,11 @@ int main() {
         case 2:         
         palidzība();  
         break;  
-  
+
+        case 3:
+        edit();
+        break;
+
           default:  
           exit(1);  
     }
@@ -88,9 +92,9 @@ int main() {
     //beidz laika uzskaiti
     time(&end_t);
     diff_t = difftime(end_t, start_t);
-    if (diff_t >= 60) {
-    printf("Tu spēlē pavadīji %d sekundes  \n", diff_t);
-    } 
+    int stundas = diff_t / 3600;
+    int minutes = ( diff_t % 3600) / 60;
+            printf("Tu spēlē pavadīji %d minūtes un %d sekundes\n", minutes, diff_t); 
 
     return 0;
       }
@@ -111,37 +115,37 @@ void clearscr() {
 }   
 
 int karte_plans() {
-     printf("\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ");
-     printf("\n┃----------------------------------------------------------------------------┃");  
-     printf("\n┃********************************** Karte ***********************************┃");  
-     printf("\n┃----------------------------------------------------------------------------┃");   
-     printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
-     printf("\n┃           *  /             _/     ^___/   /                          `^    ┃");
-     printf("\n┃             |           __/              |                             |   ┃");  
-     printf("\n┃              ^___  ____/          .*    |                              |   ┃");  
-     printf("\n┃                _||                      /     ___________            _/    ┃");
-     printf("\n┃               / /                       |___/             ^        /       ┃");  
-     printf("\n┃              /_/                       /                  ^   ___/         ┃");  
-     printf("\n┃                                       |                    ^_/   |         ┃");
-     printf("\n┃                    .        *          |                          |_       ┃");  
-     printf("\n┃                __/  |                  |                            `      ┃");  
-     printf("\n┃             __/      `_                |                            |      ┃");
-     printf("\n┃ Ventspils /X            `              |                             |     ┃");  
-     printf("\n┃          /  |` _   Talsi `_            |                              |    ┃");                                                            
-     printf("\n┃         |    |  ` X__       `          /                               `_  ┃");  
-     printf("\n┃         |     |      `       `        /   __X Sigulda                    | ┃");  
-     printf("\n┃       /Kuldīga X      X Tukums` _____/  _/                               | ┃");
-     printf("\n┃     /           |     `_       _X______/                                  |┃");  
-     printf("\n┃    |             `     `_     /  Rīga                                    | ┃");  
-     printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃");
-     printf("\n┃   |X_________/  Saldus       Jelgava       ^                              |┃");  
-     printf("\n┃   |                                      /  ^                            | ┃");
-     printf("\n┃   |          _________ ___________  ____/     ^___                      |__┃");  
-     printf("\n┃   |      _/ `         `           ``              `__                 _/  ^┃");
-     printf("\n┃    |  __/                                            `__             /     ┃");  
-     printf("\n┃    |_/                                                   `___   ___/       ┃");  
-     printf("\n┃    |                                                         `|`           ┃ \n\n1");
-
+     printf("\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬   ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ");
+     printf("\n┃----------------------------------------------------------------------------┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃********************************** Karte ***********************************┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃----------------------------------------------------------------------------┃ ┃              ┃              ┃             ┃              ┃");   
+     printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃           *  /             _/     ^___/   /                          `^    ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
+     printf("\n┃             |           __/              |                             |   ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃              ^___  ____/          .*    |                              |   ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃                _||                      /     ___________            _/    ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃               / /                       |___/             ^        /       ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃              /_/                       /                  ^   ___/         ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+     printf("\n┃                                       |                    ^_/   |         ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃                    .        *          |                          |_       ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃                __/  |                  |                            `      ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃             __/      `_                 |                           |      ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃ Ventspils /X            `               |                            |     ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+     printf("\n┃          /  |` _   Talsi `_             |                             |    ┃ ┃              ┃              ┃             ┃              ┃");                                                            
+     printf("\n┃         |    |  ` X__       `          /                               `_  ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃         |     |      `       `        /   __X Sigulda                    | ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃       /Kuldīga X      X Tukums` _____/  _/                               | ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃     /           |     `_       _X______/                                  |┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+     printf("\n┃    |             `     `_     /  Rīga                                    | ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃   |X_________/  Saldus       Jelgava       ^                              |┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃   |                                      /  ^                            | ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃   |          _________ ___________  ____/     ^___                      |__┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+     printf("\n┃   |      _/ `         `           ``              `__                 _/  ^┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃    |  __/                                            `__             /     ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃    |_/                                                   `___   ___/       ┃ ┃              ┃              ┃             ┃              ┃");  
+     printf("\n┃    |                                                         `|`           ┃ ┃              ┃              ┃             ┃              ┃");
+     printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
     int izv;
 
     printf("\nSpied: \n 1 lai\n 2 lai redzētu spēles pamācību\n 0 lai izietu \n : ");  
@@ -149,7 +153,7 @@ int karte_plans() {
   
     switch(izv)  {  
         case 1:  
-        karte_plans();  
+        main();  
         break; 
   
         case 2:         
@@ -564,4 +568,12 @@ int palidzība () {
   
 }  
 
+int edit() {
+    clearscr();
+    printf("\n                            Jautājumu rediģētājs                \n");
+    printf("Ievadi jautājumu:");
 
+
+
+
+}
