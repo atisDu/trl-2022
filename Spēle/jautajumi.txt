@@ -1,6 +1,0 @@
-{
-     Kur gauja?",
-     "Kur liepāja?",
-      "Kur porziņģis",
-       "Kur Ventspils"
-}
