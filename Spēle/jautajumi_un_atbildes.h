@@ -71,14 +71,12 @@ char atbildes_muzika2[10][1] = {
 };
 ////// 7
 
-char jautajumi_kultura1[10][200] = {
-    "Kurā gadā tika dibināta liepāja?\n A - 1294, B - 1536, C - 1625, D - 1754",
-    "Kāds ir Liepājas himnas nosaukums? Liepāja ir pilsēta kurā __\n A - jūra saplūst ar debesīm, B - piedzimst vējš, C - jūra iekš zemē"
+char jautajumi_kultura1[10][150] = {
+    "Kurā gadā tika dibināta liepāja?\n A - 1294, B - 1536, C - 1625, D - 1754"
 };
 
 char atbildes_kultura1[10][1] = {
     "C",
-    "B",
 };
 ////// 8
 char jautajumi_kultura2[10][300] = {
@@ -91,6 +89,16 @@ char atbildes_kultura2[10][40] = {
     "B",
 };
 ////// 9
+
+char jautajumi_kultura3[10][300] = {
+    "Kāds ir Liepājas himnas nosaukums? Liepāja ir pilsēta kurā __\n A - jūra saplūst ar debesīm, B - piedzimst vējš, C - jūra iekš zemē"
+};
+
+char atbildes_kultura3[10][40] = {
+    "B"
+};
+
+////// 10
 char jautajumi_daba[10][391] = {
     "Kā sauc lagūnas tipa ezeru Liepājā, kas ne tikai ir lielākais ezers Dienvidkurzemē un Liepājā, bet arī nozīmīga ūdensputnu ligzdošanas un caurceļošanas vieta, kurā ligzdo 27,\n ziemo 10 un  migrācijas laikā barojas 50 īpaši aizsargājamas putnu sugas?\n A - Liepājas ezers, B - Tosmares ezers, C - Tāšu ezers, D - Durbes ezers",
     "Liepājas Jūrmalas parks ir 50 hektārus plašs, Trīs kilometrus garš un šobrīd viens no lielākajiem stādītajiem parkiem Latvijā,\n parku veidoja, ne tikai lai krāšņotu topošā kūrorta teritoriju, bet arī praktisku iemesla dēļ. Kas ir šis iemesls?\n A - lai ierobežotu vēju, B - lai izveidotu stādijumu un koksnes resursus, C - lai ierobežotu smilšu iepūšanu pilsētā"
@@ -101,7 +109,7 @@ char atbildes_daba[10][20] = {
     "C"
 
 };
-////// 10
+////// 11
 char jautajumi_arhitektura[10][300] = {
     "Kas ir Baltijā augstākā kupolceltne?\n A - Liepājas Svētās Trīsvienības katedrāle, B - Sv. Jāzepa katedrāle, C - Sv. Nikolaja pareizticīgo Jūras katedrāle",
     "Šīs katoļu katedrāles vietā sākotnēji bija neliela mūra baznīca, bet šobrīd tas ir lielākais katoļu dievnams Kurzemē \n Kā sauc šo baznīcu?\n A - Liepājas Svētās Trīsvienības katedrāle, B - Sv. Jāzepa katedrāle, C - Sv. Nikolaja pareizticīgo Jūras katedrāle"
@@ -111,24 +119,25 @@ char atbildes_arhitektura[10][20] = {
     "C",
     "B"
 };
-////// 11
-char jautajumi_11[10][300] = {
+////// 12
+char jautajumi_politika[10][400] = {
     "Pēc kāda Latvijas Valsts prezidenta nosaukts laukums Liepājā, kas Liepājas 300. jubilejā kopā ar citiem valsts un pilsētas vadītājiem katrā laukuma stūrī\n iestādīja pa vienai liepai un ir arī augstākā vieta Liepāja - 11 m virs jūras līmeņa?\n A - Kārļa Ulmaņa, B - Vairas Vīķes-Freibergas, C - Jāņa Čakstes, D - Andra Bērziņa",
     "Kā sauc tvaikoni uz, kā 1919. gadā. Liepājas ostā angļu militārajā aizsardzībā atradās Andrieva Niedras Latvijas Pagaidu valdība Latvijas Brīvības cīņu laikā?\n A - Saratov, B - HMS Stratford, C - Māra, D - Demokratos"
-}
+};
 
-char atbildes_11[10][20] = {
+char atbildes_politika[10][20] = {
     "C",
     "A"
 };
 
-////// 12
-char jautajumi_12[10][300] = {
+////// 13
+char jautajumi_kaapas[10][300] = {
     "Cik augsta ir Latvijas augstākā kāpa Pūsēnu kalns, kas atrodas Bernātu dabas parkā, netālu no Liepājas?\n A - 23 m, B - 37 m, C - 83 m, D - 230 m",
     "Kurā vietā Liepājas apkārtnē var atrast vienu no četrām tēlnieka V.Titāna granīta skulptūrām, kas uzstādītas visos Latvijas tālākajos sauszemes punktos?\n A - Bernātu dabs parkā, C - Beberliņu atpūtas parkā, D - Zirgu salas dabas takā"
-}
+};
 
-char atbildes_12[10][20] = {
+char atbildes_kaapas[10][20] = {
     "B",
     "A"
 };
+
