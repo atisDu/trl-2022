@@ -1,4 +1,6 @@
 //////////////// jautajumi //////////////////////////
+ 
+ ///// 0
  char jautajumi_sports1[10][220] = {
     "Kāds pasaulē ievērojams NBA basketbola spēlētājs ir liepājnieks? (Raksti tikai uzvārdu)",
      "Kā sauc starptautisko šaha turnīru, kas katru gadu no 1994. līdz 2018 norisinājās liepājā?\n A - Liepājas lielais bandinieks, B - Liepājas šaha čempionāts, C - Liepājas lielmeistars,  D - liepājas rokāde",
@@ -122,8 +124,8 @@ char atbildes_11[10][20] = {
 
 ////// 12
 char jautajumi_12[10][300] = {
-    "Cik augsta ir Latvijas lielākā kāpa Pūsēnu kalns, kas atrodas Bernātu dabas parkā, netālu no Liepājas?\n A - 23 m, B - 37 m, C - 83 m, D - 230 m",
-    ""
+    "Cik augsta ir Latvijas augstākā kāpa Pūsēnu kalns, kas atrodas Bernātu dabas parkā, netālu no Liepājas?\n A - 23 m, B - 37 m, C - 83 m, D - 230 m",
+    "Kurā vietā Liepājas apkārtnē var atrast vienu no četrām tēlnieka V.Titāna granīta skulptūrām, kas uzstādītas visos Latvijas tālākajos sauszemes punktos?\n A - Bernātu dabs parkā, C - Beberliņu atpūtas parkā, D - Zirgu salas dabas takā"
 }
 
 char atbildes_12[10][20] = {
