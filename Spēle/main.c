@@ -151,7 +151,8 @@ int karte_plans() {
      printf("\n┃    | /                                                   `___   ___/       ┃ ┃              ┃              ┃             ┃               ┃");  
      printf("\n┃    |'                                                        `|`           ┃ ┃              ┃              ┃             ┃               ┃");
      printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
-    char izv[1][1];
+    //char izv[1][1];
+     char izv;
 
 
 
@@ -159,71 +160,98 @@ int karte_plans() {
     scanf("%s",izv);  
   
     switchs(izv)  {  
-        if (a != "A") {
+        if (strcasecmp( a, bijis ) == 1) {
         icases("A")  
-        a = "*";
-        main();
+        a = bijis;
+        jaut_a;
         break; 
 }
+        if (strcasecmp( b, bijis ) == 1) {
         icases("B")
-        b = "*";       
+        b = bijis;       
         palidzība();  
         break;  
-
+}
+  if (strcasecmp( c, bijis ) == 1) {
         icases("C")
-        c = "*";  
-        main();  
-        break; 
-  
+        c = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( d, bijis ) == 1) {
         icases("D")
-        d = "*";       
-        palidzība();  
-        break; 
-
-        icases("E")  
-        e = "e";
-        main();  
-        break; if (
-        break;  
-
-        icases("2")  
-        main();  
-        break; 
-  
-        icases("3")       
+        d = bijis;       
         palidzība();  
         break;  
-
-        icases("4")  
-        main();  
-        break; 
-  
-        icases("5")       
+}
+     if (strcasecmp( e, bijis ) == 1) {
+        icases("E")
+        e = bijis;       
         palidzība();  
         break;  
-
-        icases("6")  
-        main();  
-        break; 
-  
-        icases("7")       
+}
+     if (strcasecmp( k1, bijis ) == 1) {
+        icases("1")
+        k1 = bijis;       
         palidzība();  
         break;  
-
-        icases("8")  
-        main();  
-        break; 
-  
-        icases("9")       
+}
+     if (strcasecmp( k2, bijis ) == 1) {
+        icases("2")
+        k2 = bijis;       
         palidzība();  
         break;  
-
-        icases("10")       
+}
+     if (strcasecmp( k3, bijis ) == 1) {
+        icases("3")
+        k3 = bijis;       
         palidzība();  
-        break;
-  
+        break;  
+}
+     if (strcasecmp( k4, bijis ) == 1) {
+        icases("4")
+        k4 = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( k5, bijis ) == 1) {
+        icases("5")
+        k5 = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( k6, bijis ) == 1) {
+        icases("6")
+        k6 = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( k7, bijis ) == 1) {
+        icases("7")
+        k7 = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( k8, bijis ) == 1) {
+        icases("8")
+        k8 = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( k9, bijis ) == 1) {
+        icases("9")
+        k9 = bijis;       
+        palidzība();  
+        break;  
+}
+     if (strcasecmp( k10, bijis ) == 1) {
+        icases("10")
+        k10 = bijis;       
+        palidzība();  
+        break;  
+}
           defaults  
-          printf("Kļūdaina ievade, ieraksti jebkuru burtu vai skaitli, kas rādīts tabulā.");
+          printf("Kļūdaina ievade, šajā lauciņā jau esi bijis! Ieraksti jebkuru burtu vai skaitli,kas rādīts tabulā.\n (Zvaigznītes parāda vietas kur jau esi bijis.");
           karte_plans();
           break;  
     } switchs_end;
