@@ -38,17 +38,33 @@ ______   ___   _      _      _____    ___  _____      _____  _____  _____  _____
 
 int karte_plans(), edit();
 int palidzība();
+int jaut_a(), jaut_b(), jaut_c();
+int jaut_d();
+int jaut_e(), jaut_k1();
+int jaut_k2(), jaut_k3(), jaut_k4();
+int jaut_k5(), jaut_k6(), jaut_k7();
+int jaut_k8(), jaut_k9(), jaut_k10();
 int lietus = 1;
 int punkti = 0;
-int pareizi_kp = 0, punktiparpareizukontrolpunktu = 1; 
-int punktiparpareizu = 5;
+int pareizi_kp = 0, pp_pareizu_kp = 1; 
+int p_par_pareizu = 5;
 int nobrauktie_km;
 int km;
 char ievadne[20];
+int num;
+char a = 'A', b = 'B', c = 'C', d = 'D', e = 'E', k1 = '1', k2 = '2', k3 = '3', k4 = '4', k5 = '5', k6 = '6', k7 = '7', k8 = '8', k9 = '9';
 
-char a, b, c, d, e;
+char* k10 = {
+    "10"
+};
 
-char nbijis = "*";
+char* bijiss = {
+    "*"
+};
+
+char bijis = '*';
+
+char sakums = '#';
 
 int main() {
 
@@ -127,131 +143,136 @@ int karte_plans() {
      printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃              ┃                            ┃               ┃");
      printf("\n┃           *  /             _/     ^___/   /                          `^    ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
      printf("\n┃             |           __/              |                             |   ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃              ^___  ____/          .*    |                              |   ┃ ┃   Sigulda    ┃       %c      ┃      %c      ┃       %c       ┃", nultais, pirmias, a);  
+     printf("\n┃              ^___  ____/          .*    |                              |   ┃ ┃   Sigulda    ┃       %c      ┃      %c      ┃       %c       ┃", sakums, k1, a);  
      printf("\n┃                _||                      /     ___________            _/    ┃ ┃              ┃              ┃             ┃               ┃");
      printf("\n┃               / /                       |___/             ^        /       ┃ ┃              ┃              ┃             ┃               ┃");  
      printf("\n┃              /_/                       /                  ^   ___/         ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
      printf("\n┃                                       |                    ^_/   |         ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃                    .        *          |                          |_       ┃ ┃    Tukums    ┃       %c     ┃       %c      ┃       %c       ┃");  
+     printf("\n┃                    .        *          |                          |_       ┃ ┃    Tukums    ┃       %c     ┃       %c      ┃       %c       ┃", k2, k3, b);  
      printf("\n┃                __/  |                  |                            `      ┃ ┃              ┃              ┃             ┃               ┃");  
      printf("\n┃             __/      `_                 |                           |      ┃ ┃              ┃              ┃             ┃               ┃");
      printf("\n┃ Ventspils /X            `               |                            |     ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
      printf("\n┃          /  |` _   Talsi `_             |                             |    ┃ ┃              ┃              ┃             ┃               ┃");                                                            
-     printf("\n┃         |    |  ` X__       `          /                               `_  ┃ ┃    Talsi     ┃       %c      ┃      %c      ┃       %c       ┃");  
+     printf("\n┃         |    |  ` X__       `          /                               `_  ┃ ┃    Talsi     ┃       %c      ┃      %c      ┃       %c       ┃", k4, k5, c);  
      printf("\n┃         |     |      `       `        /   __X Sigulda                    | ┃ ┃              ┃              ┃             ┃               ┃");  
      printf("\n┃       /Kuldīga X      X Tukums` _____/  _/                               | ┃ ┃              ┃              ┃             ┃               ┃");
      printf("\n┃     /           |     `_       _X______/                                  |┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
      printf("\n┃    |             `     `_     /  Rīga                                    | ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃ ┃   Ventspils  ┃       %c      ┃      %c      ┃       %c       ┃");
+     printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃ ┃   Ventspils  ┃       %c      ┃      %c      ┃       %c       ┃", k6, k7, d);
      printf("\n┃   |X_________/  Saldus       Jelgava       ^                              |┃ ┃              ┃              ┃             ┃               ┃");  
      printf("\n┃   |                                      /  ^                            | ┃ ┃              ┃              ┃             ┃               ┃");
      printf("\n┃   |          _________ ___________  ____/     ^___                      |__┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
      printf("\n┃   |      _/ `         `           ``              `__                 _/  ^┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃    |  __/                                            `__             /     ┃ ┃   Liepāja    ┃       %c      ┃      %c      ┃       %c       ┃");  
+     printf("\n┃    |  __/                                            `__             /     ┃ ┃   Liepāja    ┃       %c      ┃      %c      ┃       %c       ┃", k8, k9, e);  
      printf("\n┃    | /                                                   `___   ___/       ┃ ┃              ┃              ┃             ┃               ┃");  
      printf("\n┃    |'                                                        `|`           ┃ ┃              ┃              ┃             ┃               ┃");
      printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
-    //char izv[1][1];
-     char izv;
+     char izv[1];
+     if (a != bijis) {
+         printf("\n Nav vienādi!\n");
+         printf("\nA = %c", a);
+         a = bijis;
+     printf("\nbijis = %c\n", bijis );
+     }else {
+     printf("\nA = %c", a);
+     printf("\nbijis = %c\n", bijis );
+     }
 
 
 
-    printf("\nTu Izvēlies nākamo staciju: ");  
+    printf("\nIzvēlies nākamo staciju: ");  
     scanf("%s",izv);  
   
     switchs(izv)  {  
-        if (strcasecmp( a, bijis ) == 1) {
+    if (a != bijis) {
         icases("A")  
         a = bijis;
-        jaut_a;
+        num = 1;
+        jaut_a();
         break; 
-}
-        if (strcasecmp( b, bijis ) == 1) {
+} 
+    if (b != bijis) {
         icases("B")
         b = bijis;       
-        palidzība();  
+        jaut_b();  
         break;  
 }
-  if (strcasecmp( c, bijis ) == 1) {
+     if (c != bijis) {
         icases("C")
         c = bijis;       
-        palidzība();  
+        jaut_c();  
         break;  
 }
-     if (strcasecmp( d, bijis ) == 1) {
+     if (d != bijis) {
         icases("D")
         d = bijis;       
-        palidzība();  
+        jaut_d();  
         break;  
 }
-     if (strcasecmp( e, bijis ) == 1) {
+     if (e != bijis) {
         icases("E")
         e = bijis;       
-        palidzība();  
+        jaut_e();  
         break;  
 }
-     if (strcasecmp( k1, bijis ) == 1) {
+     if (k1 != bijis) {
         icases("1")
         k1 = bijis;       
-        palidzība();  
+        jaut_k1();  
         break;  
 }
-     if (strcasecmp( k2, bijis ) == 1) {
+     if (k2 != bijis) {
         icases("2")
         k2 = bijis;       
-        palidzība();  
+        jaut_k2();  
         break;  
 }
-     if (strcasecmp( k3, bijis ) == 1) {
+     if (k3 != bijis) {
         icases("3")
         k3 = bijis;       
-        palidzība();  
+        jaut_k3();  
         break;  
 }
-     if (strcasecmp( k4, bijis ) == 1) {
+     if (k4 != bijis) {
         icases("4")
         k4 = bijis;       
-        palidzība();  
+        jaut_k4();  
         break;  
 }
-     if (strcasecmp( k5, bijis ) == 1) {
+     if (k5 != bijis) {
         icases("5")
         k5 = bijis;       
-        palidzība();  
+        jaut_k5();  
         break;  
 }
-     if (strcasecmp( k6, bijis ) == 1) {
+     if (k6 != bijis) {
         icases("6")
         k6 = bijis;       
-        palidzība();  
+        jaut_k6();  
         break;  
 }
-     if (strcasecmp( k7, bijis ) == 1) {
+     if (k7 != bijis) {
         icases("7")
         k7 = bijis;       
-        palidzība();  
+        jaut_k7();  
         break;  
 }
-     if (strcasecmp( k8, bijis ) == 1) {
+     if (k8 != bijis) {
         icases("8")
         k8 = bijis;       
-        palidzība();  
+        jaut_k8();  
         break;  
 }
-     if (strcasecmp( k9, bijis ) == 1) {
+     if (k9 != bijis) {
         icases("9")
         k9 = bijis;       
-        palidzība();  
-        break;  
-}
-     if (strcasecmp( k10, bijis ) == 1) {
-        icases("10")
-        k10 = bijis;       
-        palidzība();  
+        jaut_k9();  
         break;  
 }
           defaults  
+          clearscr();
           printf("Kļūdaina ievade, šajā lauciņā jau esi bijis! Ieraksti jebkuru burtu vai skaitli,kas rādīts tabulā.\n (Zvaigznītes parāda vietas kur jau esi bijis.");
+          sleep(3.5);
           karte_plans();
           break;  
     } switchs_end;
@@ -262,41 +283,466 @@ int karte_plans() {
 
 
 
-
-
-
-int kontrolpunkts1 () {
+int jaut_k1 () {
     clearscr();
-    for (int i = 0; i < 4; i++) {
-    printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+    for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
     printf("%s ", jautajumi_liepaja[i]);
     scanf("%s", ievadne);
-    
+
     if ( strcasecmp( ievadne, atbildes_liepaja[i] ) == 0) {
                 clearscr();
-                punkti = punkti + punktiparpareizu;
-                pareizi_kp = pareizi_kp + punktiparpareizukontrolpunktu;
-                printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
                 printf("                                                            %d punkti \n", punkti);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
     } else {
         clearscr();
-        printf("                                                    Kontrolpunkti:%d/7\n", i + 1);
+
         printf("                                                            %d punkti \n", punkti);
         printf("Nepareizi!\n");
+        sleep(1.5);
         clearscr();
     }
 }
 
-printf("** Pirmā kontrolpunkta beigas! ** \n\n");
-printf("Tavs punktu skaits ir %d no 20 punktiem\n", punkti);
-printf("Tu šobrīd pareizi esi atbildējis uz %d no 4 jautajumiem,\n\n", pareizi_kp);
-sleep(7);
-
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
 }
+
+int jaut_k2 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_kultura2[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_kultura2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_a () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_sports1[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_sports1[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k3 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_muzika1[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_muzika1[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k4 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_muzika2[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_muzika2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_b () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_kultura3[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_kultura3[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k5 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_daba[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_daba[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k6 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_politika[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_politika[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_c () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_arhitektura[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_arhitektura[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k7 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_sports2[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_sports2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k8 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_karosta1[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_karosta1[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_d () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_karosta2[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_karosta2[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+int jaut_k9 () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_kaapas[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_kultura1[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+
+int jaut_e () {
+    clearscr();
+    for (int i = 0; i < 2; i++) {
+    printf("                                                            %d punkti \n", punkti);
+    printf("%s ", jautajumi_kaapas[i]);
+    scanf("%s", ievadne);
+
+    if ( strcasecmp( ievadne, atbildes_kaapas[i] ) == 0) {
+                clearscr();
+                punkti = punkti + p_par_pareizu;
+                pareizi_kp = pareizi_kp + pp_pareizu_kp;
+            ;
+        
+                printf("                                                            %d punkti \n", punkti);
+                printf("Pareizi! \n");
+                sleep(1.5);
+                clearscr();
+    } else {
+        clearscr();
+
+        printf("                                                            %d punkti \n", punkti);
+        printf("Nepareizi!\n");
+        sleep(1.5);
+        clearscr();
+    }
+}
+
+printf("** kontrolpunkta beigas! ** \n\n");
+printf("Tavs punktu skaits ir %d \n", punkti);
+karte_plans();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

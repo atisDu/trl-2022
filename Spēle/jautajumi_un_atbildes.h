@@ -16,7 +16,7 @@ char jautajumi_sports2[10][200] = {
     "Kāda tipa autorallijs ir ikgadējais Liepājas autorallija notikums Rally Liepāja?\n A - asfalta, B - grants (gravel), C - sniega, D - ledus"
 };
 
-char atbildes_sports2[10][1] = {
+char atbildes_sports2[10][40] = {
     "C"
 };
 ////// 2
@@ -25,7 +25,7 @@ char jautajumi_karosta1[10][340] = {
     "Ziemeļu fortos uz vienas no nocietinājumu sienām ir skatāms portrets, ko 2018. gadā uzgleznojis franču mākslinieks ar pseidonīmu Al Sticking.\n Kas atainots šajā portretā?\n A - sieviete, B - dzintara gabaliņš, C - karakuģis, D - torpēda"
 };
 
-char atbildes_karosta1[10][1] = {
+char atbildes_karosta1[10][40] = {
     "A",
      "A"
 };
@@ -45,9 +45,9 @@ char jautajumi_liepaja[10][200] = {
     "Kāds ir Liepājas himnas nosaukums? Liepāja ir pilsēta kurā __\n A - jūra saplūst ar debesīm, B - piedzimst vējš, C - jūra iekš zemē"
 };
 
-char atbildes_liepaja[10][1] = {
+char atbildes_liepaja[10][40] = {
     "C",
-    "B",
+    "B"
 };
 ////// 5
 char jautajumi_muzika1[10][255] = {
@@ -55,28 +55,28 @@ char jautajumi_muzika1[10][255] = {
     "Kāds ir Liepājas leilākās koncertzāles nosaukums?\n A - Lielā Skuja, B - Dzintarmols , C - Jūraszāle, D - Lielais Dzintars, E - Lielais Kristaps"
 };
 
-char atbildes_muzika1[10][1] = {
+char atbildes_muzika1[10][40] = {
     "A",
-    "D",
+    "D"
 };
 ////// 6
 char jautajumi_muzika2[10][255] = {
-    "Kurā gadā tika uzcelta šī koncertzāle?\n A - 2011, B - 2014, C - 2015, D - 2018",
+    "Kurā gadā tika uzcelta vienīgā koncertzāle Liepājā?\n A - 2011, B - 2014, C - 2015, D - 2018",
     "Liepājas Svētās Trīsvienības katedrālē atrodas pasaulē lielākās mehāniskās ērģeles, aptuveni cik stabuļu ir šīm ērģelēm?\n A - 5500, B - 6200, C - 7000, D - 8200",
 };
 
-char atbildes_muzika2[10][1] = {
+char atbildes_muzika2[10][40] = {
     "C",
     "C"
 };
 ////// 7
 
-char jautajumi_kultura1[10][150] = {
-    "Kurā gadā tika dibināta liepāja?\n A - 1294, B - 1536, C - 1625, D - 1754"
+char jautajumi_kultura1[10][350] = {
+    "Galerija Romas dārzs, kas atrodas arhitekta M.P. Berči celtās kādreizējās viesnīcas Roma pagalma ēkas pirmajā stāvā kā vienu no savām vīzijām izvirzījusi uzstādījumu kolekcionēt un apkopot to latviešu mākslinieku darbus, kuru dzīves un darba gaitas saistītas ar ko?\n A - Dzintaru, B - Liepāju, C - Jūru, D - Līviem"
 };
 
-char atbildes_kultura1[10][1] = {
-    "C",
+char atbildes_kultura1[10][40] = {
+    "B"
 };
 ////// 8
 char jautajumi_kultura2[10][300] = {
@@ -104,7 +104,7 @@ char jautajumi_daba[10][391] = {
     "Liepājas Jūrmalas parks ir 50 hektārus plašs, Trīs kilometrus garš un šobrīd viens no lielākajiem stādītajiem parkiem Latvijā,\n parku veidoja, ne tikai lai krāšņotu topošā kūrorta teritoriju, bet arī praktisku iemesla dēļ. Kas ir šis iemesls?\n A - lai ierobežotu vēju, B - lai izveidotu stādijumu un koksnes resursus, C - lai ierobežotu smilšu iepūšanu pilsētā"
 };
 
-char atbildes_daba[10][20] = {
+char atbildes_daba[10][40] = {
     "A",
     "C"
 
