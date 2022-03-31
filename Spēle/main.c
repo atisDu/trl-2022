@@ -44,23 +44,24 @@ int jaut_e(), jaut_k1();
 int jaut_k2(), jaut_k3(), jaut_k4();
 int jaut_k5(), jaut_k6(), jaut_k7();
 int jaut_k8(), jaut_k9(), jaut_k10();
-int lietus = 1;
-int punkti = 0;
+int laika_apst;
+unsigned int punkti = 0;
+
+int atlikus_bt_km; 
+
+int uzvara();
+
+int stasts();
+int atved();
+
 int pareizi_kp = 0, pp_pareizu_kp = 1; 
 int p_par_pareizu = 5;
 int nobrauktie_km;
 int km;
 char ievadne[20];
-int num;
+int saulains;
 char a = 'A', b = 'B', c = 'C', d = 'D', e = 'E', k1 = '1', k2 = '2', k3 = '3', k4 = '4', k5 = '5', k6 = '6', k7 = '7', k8 = '8', k9 = '9';
 
-char* k10 = {
-    "10"
-};
-
-char* bijiss = {
-    "*"
-};
 
 char bijis = '*';
 
@@ -85,6 +86,20 @@ int main() {
      printf("\n                                       _-_- `( o )----( o )-'                     ");
        
        
+       // lietus laikā 70 km, sauulainā 140 km
+        int lower = 0, upper = 1;
+    srand(time(0));
+    int saulains = (rand() % (upper - lower + 1)) + lower;
+    if (saulains = 0) {
+        atlikus_bt_km = 70;
+       // printf("Laikapstākļi ir lietaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+
+    } else {
+        atlikus_bt_km = 140;
+     //   printf("Laikapstākļi ir saulaini vai mākoņaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+    }
+
+
     int izv;  
   
     printf("\nSpied: \n 1, lai sāktu spēli\n 2, lai redzētu spēles pamācību, 3, lai izveidotu savus jautājumus un atbildes\n 0 lai izietu \n : ");  
@@ -92,7 +107,7 @@ int main() {
   
     switch(izv)  {  
         case 1:  
-        karte_plans();  
+        stasts();  
         break; 
   
         case 2:         
@@ -133,140 +148,169 @@ void clearscr() {
 }   
 
 int karte_plans() {
+    if (sakums == bijis && k1 == bijis && k2 == bijis && k3 == bijis && k4 == bijis && k5 == bijis && k6 == bijis && k7 == bijis && k8 == bijis && k9 == bijis && a == bijis && b == bijis && c == bijis && d == bijis && e == bijis) {
+        uzvara();
+    }
+    if (atlikus_bt_km == 0) {
+        atved();
+    }
+        for (int i = 0; i < 15; i++) {
 
-    for (int i = 0; i < 15; i++) {
+        printf("\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬   ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ");
+        printf("\n┃----------------------------------------------------------------------------┃ ┃              ┃                            ┃               ┃");  
+        printf("\n┃********************************** Karte ***********************************┃ ┃   Pilsēta    ┃      Apskates objekts      ┃   EU Stacija  ┃");  
+        printf("\n┃----------------------------------------------------------------------------┃ ┃              ┃                            ┃               ┃");   
+        printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃              ┃                            ┃               ┃");
+        printf("\n┃           *  /             _/     ^___/   /                          `^    ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
+        printf("\n┃             |           __/              |                             |   ┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃              ^___  ____/          .*    |                              |   ┃ ┃   Sigulda    ┃       %c      ┃      %c (25)     ┃       %c (30)      ┃", sakums, k1, a);  
+        printf("\n┃                _||                      /     ___________            _/    ┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃               / /                       |___/             ^        /       ┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃              /_/                       /                  ^   ___/         ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+        printf("\n┃                                       |                    ^_/   |         ┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃                    .        *          |                          |_       ┃ ┃    Tukums    ┃       %c (30)     ┃      %c (45)     ┃       %c (40)      ┃", k2, k3, b);  
+        printf("\n┃                __/  |                  |                            `      ┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃             __/      `_                 |                           |      ┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃ Ventspils /X            `               |                            |     ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+        printf("\n┃          /  |` _   Talsi `_             |                             |    ┃ ┃              ┃              ┃             ┃               ┃");                                                            
+        printf("\n┃         |    |  ` X__       `          /                               `_  ┃ ┃    Talsi     ┃       %c (35)     ┃      %c (15)     ┃       %c (15)      ┃", k4, k5, c);  
+        printf("\n┃         |     |      `       `        /   __X Sigulda                    | ┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃       /Kuldīga X      X Tukums` _____/  _/                               | ┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃     /           |     `_       _X______/                                  |┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+        printf("\n┃    |             `     `_     /  Rīga                                    | ┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃ ┃   Ventspils  ┃       %c (45)     ┃      %c (15)     ┃       %c (25)      ┃", k6, k7, d);
+        printf("\n┃   |X_________/  Saldus       Jelgava       ^                              |┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃   |                                      /  ^                            | ┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃   |          _________ ___________  ____/     ^___                      |__┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
+        printf("\n┃   |      _/ `         `           ``              `__                 _/  ^┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃    |  __/                                            `__             /     ┃ ┃   Liepāja    ┃       %c (20)     ┃      %c (10)     ┃       %c (55)      ┃", k8, k9, e);  
+        printf("\n┃    | /                                                   `___   ___/       ┃ ┃              ┃              ┃             ┃               ┃");  
+        printf("\n┃    |'                                                        `|`           ┃ ┃              ┃              ┃             ┃               ┃");
+        printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
+        
+        
+        if (saulains = 0) {
+        printf("                      Laikapstākļi ir lietaini un tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+        } else {
+        printf("                      Laikapstākļi ir saulaini un tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+        }
+        
+        
+        char izv[1];
 
-     printf("\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬   ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ ");
-     printf("\n┃----------------------------------------------------------------------------┃ ┃              ┃                            ┃               ┃");  
-     printf("\n┃********************************** Karte ***********************************┃ ┃   Pilsēta    ┃      Apskates objekts      ┃   EU Stacija  ┃");  
-     printf("\n┃----------------------------------------------------------------------------┃ ┃              ┃                            ┃               ┃");   
-     printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃              ┃                            ┃               ┃");
-     printf("\n┃           *  /             _/     ^___/   /                          `^    ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
-     printf("\n┃             |           __/              |                             |   ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃              ^___  ____/          .*    |                              |   ┃ ┃   Sigulda    ┃       %c      ┃      %c      ┃       %c       ┃", sakums, k1, a);  
-     printf("\n┃                _||                      /     ___________            _/    ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃               / /                       |___/             ^        /       ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃              /_/                       /                  ^   ___/         ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
-     printf("\n┃                                       |                    ^_/   |         ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃                    .        *          |                          |_       ┃ ┃    Tukums    ┃       %c     ┃       %c      ┃       %c       ┃", k2, k3, b);  
-     printf("\n┃                __/  |                  |                            `      ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃             __/      `_                 |                           |      ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃ Ventspils /X            `               |                            |     ┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
-     printf("\n┃          /  |` _   Talsi `_             |                             |    ┃ ┃              ┃              ┃             ┃               ┃");                                                            
-     printf("\n┃         |    |  ` X__       `          /                               `_  ┃ ┃    Talsi     ┃       %c      ┃      %c      ┃       %c       ┃", k4, k5, c);  
-     printf("\n┃         |     |      `       `        /   __X Sigulda                    | ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃       /Kuldīga X      X Tukums` _____/  _/                               | ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃     /           |     `_       _X______/                                  |┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
-     printf("\n┃    |             `     `_     /  Rīga                                    | ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃   | Liepāja   ____`X______`X_/                                           | ┃ ┃   Ventspils  ┃       %c      ┃      %c      ┃       %c       ┃", k6, k7, d);
-     printf("\n┃   |X_________/  Saldus       Jelgava       ^                              |┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃   |                                      /  ^                            | ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃   |          _________ ___________  ____/     ^___                      |__┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");  
-     printf("\n┃   |      _/ `         `           ``              `__                 _/  ^┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃    |  __/                                            `__             /     ┃ ┃   Liepāja    ┃       %c      ┃      %c      ┃       %c       ┃", k8, k9, e);  
-     printf("\n┃    | /                                                   `___   ___/       ┃ ┃              ┃              ┃             ┃               ┃");  
-     printf("\n┃    |'                                                        `|`           ┃ ┃              ┃              ┃             ┃               ┃");
-     printf("\n┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃ ┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬┃▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬┃");
-     char izv[1];
-     if (a != bijis) {
-         printf("\n Nav vienādi!\n");
-         printf("\nA = %c", a);
-         a = bijis;
-     printf("\nbijis = %c\n", bijis );
-     }else {
-     printf("\nA = %c", a);
-     printf("\nbijis = %c\n", bijis );
-     }
-
-
-
-    printf("\nIzvēlies nākamo staciju: ");  
-    scanf("%s",izv);  
+    
+        printf("\nIzvēlies nākamo staciju: ");  
+        scanf("%s",izv);  
   
     switchs(izv)  {  
-    if (a != bijis) {
         icases("A")  
+        if (a != bijis) {
         a = bijis;
-        num = 1;
         jaut_a();
+        atlikus_bt_km - 30;
         break; 
 } 
-    if (b != bijis) {
         icases("B")
+        if (b != bijis) {
         b = bijis;       
         jaut_b();  
+        atlikus_bt_km - 40;
         break;  
 }
-     if (c != bijis) {
+     
         icases("C")
+        if (c != bijis) {
         c = bijis;       
         jaut_c();  
+        atlikus_bt_km - 15;
         break;  
 }
-     if (d != bijis) {
+    
         icases("D")
+         if (d != bijis) {
         d = bijis;       
         jaut_d();  
+        atlikus_bt_km - 25;
         break;  
 }
-     if (e != bijis) {
+     
         icases("E")
+        if (e != bijis) {
         e = bijis;       
         jaut_e();  
+        atlikus_bt_km - 55;
         break;  
 }
-     if (k1 != bijis) {
+     
         icases("1")
+        if (k1 != bijis) {
         k1 = bijis;       
         jaut_k1();  
+        atlikus_bt_km - 25;
         break;  
-}
-     if (k2 != bijis) {
+}    
+     
         icases("2")
+        if (k2 != bijis) {
         k2 = bijis;       
         jaut_k2();  
+        atlikus_bt_km - 30;
         break;  
 }
-     if (k3 != bijis) {
+     
         icases("3")
+        if (k3 != bijis) {
         k3 = bijis;       
         jaut_k3();  
+        atlikus_bt_km - 45;
         break;  
 }
-     if (k4 != bijis) {
+     
         icases("4")
+        if (k4 != bijis) {
         k4 = bijis;       
         jaut_k4();  
+        atlikus_bt_km - 35;
         break;  
 }
-     if (k5 != bijis) {
+     
         icases("5")
+        if (k5 != bijis) {
         k5 = bijis;       
         jaut_k5();  
+        atlikus_bt_km - 15;
         break;  
 }
-     if (k6 != bijis) {
+     
         icases("6")
+        if (k6 != bijis) {
         k6 = bijis;       
-        jaut_k6();  
+        jaut_k6();
+        atlikus_bt_km -45;  
         break;  
-}
-     if (k7 != bijis) {
+} 
+     
         icases("7")
+        if (k7 != bijis) {
         k7 = bijis;       
         jaut_k7();  
+        atlikus_bt_km - 15;
         break;  
 }
-     if (k8 != bijis) {
+    
         icases("8")
+         if (k8 != bijis) {
         k8 = bijis;       
         jaut_k8();  
+        atlikus_bt_km - 20;
         break;  
 }
-     if (k9 != bijis) {
+     
         icases("9")
+        if (k9 != bijis) {
         k9 = bijis;       
         jaut_k9();  
+        atlikus_bt_km - 10;
         break;  
 }
           defaults  
@@ -287,6 +331,7 @@ int jaut_k1 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_liepaja[i]);
     scanf("%s", ievadne);
 
@@ -294,8 +339,8 @@ int jaut_k1 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -303,6 +348,7 @@ int jaut_k1 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -311,6 +357,8 @@ int jaut_k1 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -318,6 +366,7 @@ int jaut_k2 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_kultura2[i]);
     scanf("%s", ievadne);
 
@@ -325,15 +374,16 @@ int jaut_k2 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
     } else {
         clearscr();
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         
@@ -343,6 +393,10 @@ int jaut_k2 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+
+
+sleep(5);
 karte_plans();
 }
 
@@ -350,6 +404,7 @@ int jaut_a () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_sports1[i]);
     scanf("%s", ievadne);
 
@@ -360,6 +415,7 @@ int jaut_a () {
             ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -367,6 +423,7 @@ int jaut_a () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -375,6 +432,21 @@ int jaut_a () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("Tava baterija tika uzpildīta!\n");
+// lietus laikā 70 km, sauulainā 140 km
+        int lower = 0, upper = 1;
+    srand(time(0));
+    int saulains = (rand() % (upper - lower + 1)) + lower;
+    if (saulains = 0) {
+        atlikus_bt_km = 70;
+        printf("Laikapstākļi ir lietaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+
+    } else {
+        atlikus_bt_km = 140;
+        printf("Laikapstākļi ir saulaini vai mākoņaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+    }
+
+sleep(5);
 karte_plans();
 }
 
@@ -382,6 +454,7 @@ int jaut_k3 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_muzika1[i]);
     scanf("%s", ievadne);
 
@@ -389,9 +462,10 @@ int jaut_k3 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
+            
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -399,6 +473,7 @@ int jaut_k3 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -407,6 +482,8 @@ int jaut_k3 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -414,6 +491,7 @@ int jaut_k4 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_muzika2[i]);
     scanf("%s", ievadne);
 
@@ -421,9 +499,10 @@ int jaut_k4 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
+
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -431,6 +510,7 @@ int jaut_k4 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -439,6 +519,8 @@ int jaut_k4 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -446,6 +528,7 @@ int jaut_b () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_kultura3[i]);
     scanf("%s", ievadne);
 
@@ -453,9 +536,9 @@ int jaut_b () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -463,6 +546,7 @@ int jaut_b () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -471,6 +555,21 @@ int jaut_b () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("Tava baterija tika uzpildīta!\n");
+// lietus laikā 70 km, sauulainā 140 km
+        int lower = 0, upper = 1;
+    srand(time(0));
+    int saulains = (rand() % (upper - lower + 1)) + lower;
+    if (saulains = 0) {
+        atlikus_bt_km = 70;
+        printf("Laikapstākļi ir lietaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+
+    } else {
+        atlikus_bt_km = 140;
+        printf("Laikapstākļi ir saulaini vai mākoņaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+    }
+
+sleep(5);
 karte_plans();
 }
 
@@ -478,6 +577,7 @@ int jaut_k5 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_daba[i]);
     scanf("%s", ievadne);
 
@@ -485,9 +585,9 @@ int jaut_k5 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -495,6 +595,7 @@ int jaut_k5 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -503,6 +604,8 @@ int jaut_k5 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -510,6 +613,7 @@ int jaut_k6 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_politika[i]);
     scanf("%s", ievadne);
 
@@ -517,9 +621,9 @@ int jaut_k6 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -527,6 +631,7 @@ int jaut_k6 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -535,6 +640,8 @@ int jaut_k6 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -542,6 +649,7 @@ int jaut_c () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_arhitektura[i]);
     scanf("%s", ievadne);
 
@@ -549,9 +657,9 @@ int jaut_c () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -559,6 +667,7 @@ int jaut_c () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -567,6 +676,21 @@ int jaut_c () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("Tava baterija tika uzpildīta!\n");
+// lietus laikā 70 km, sauulainā 140 km
+        int lower = 0, upper = 1;
+    srand(time(0));
+    int saulains = (rand() % (upper - lower + 1)) + lower;
+    if (saulains = 0) {
+        atlikus_bt_km = 70;
+        printf("Laikapstākļi ir lietaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+
+    } else {
+        atlikus_bt_km = 140;
+        printf("Laikapstākļi ir saulaini vai mākoņaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+    }
+
+sleep(5);
 karte_plans();
 }
 
@@ -574,6 +698,7 @@ int jaut_k7 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_sports2[i]);
     scanf("%s", ievadne);
 
@@ -581,9 +706,9 @@ int jaut_k7 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -591,6 +716,7 @@ int jaut_k7 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -599,6 +725,8 @@ int jaut_k7 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -606,6 +734,7 @@ int jaut_k8 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_karosta1[i]);
     scanf("%s", ievadne);
 
@@ -613,9 +742,9 @@ int jaut_k8 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -623,6 +752,7 @@ int jaut_k8 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -631,6 +761,8 @@ int jaut_k8 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -638,6 +770,7 @@ int jaut_d () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_karosta2[i]);
     scanf("%s", ievadne);
 
@@ -645,9 +778,9 @@ int jaut_d () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -655,6 +788,20 @@ int jaut_d () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("Tava baterija tika uzpildīta!\n");
+// lietus laikā 70 km, sauulainā 140 km
+        int lower = 0, upper = 1;
+    srand(time(0));
+    int saulains = (rand() % (upper - lower + 1)) + lower;
+    if (saulains = 0) {
+        atlikus_bt_km = 70;
+        printf("Laikapstākļi ir lietaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+
+    } else {
+        atlikus_bt_km = 140;
+        printf("Laikapstākļi ir saulaini vai mākoņaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+    }
+
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -663,6 +810,8 @@ int jaut_d () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -670,6 +819,7 @@ int jaut_k9 () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_kaapas[i]);
     scanf("%s", ievadne);
 
@@ -677,9 +827,9 @@ int jaut_k9 () {
                 clearscr();
                 punkti = punkti + p_par_pareizu;
                 pareizi_kp = pareizi_kp + pp_pareizu_kp;
-            ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -687,6 +837,7 @@ int jaut_k9 () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -695,6 +846,8 @@ int jaut_k9 () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
+sleep(5);
 karte_plans();
 }
 
@@ -703,6 +856,7 @@ int jaut_e () {
     clearscr();
     for (int i = 0; i < 2; i++) {
     printf("                                                            %d punkti \n", punkti);
+    printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
     printf("%s ", jautajumi_kaapas[i]);
     scanf("%s", ievadne);
 
@@ -713,6 +867,7 @@ int jaut_e () {
             ;
         
                 printf("                                                            %d punkti \n", punkti);
+                printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
                 printf("Pareizi! \n");
                 sleep(1.5);
                 clearscr();
@@ -720,6 +875,7 @@ int jaut_e () {
         clearscr();
 
         printf("                                                            %d punkti \n", punkti);
+        printf("                                           Tev ir atlikusi baterija %d kilometriem! \n", atlikus_bt_km);
         printf("Nepareizi!\n");
         sleep(1.5);
         clearscr();
@@ -728,6 +884,21 @@ int jaut_e () {
 
 printf("** kontrolpunkta beigas! ** \n\n");
 printf("Tavs punktu skaits ir %d \n", punkti);
+printf("Tava baterija tika uzpildīta!\n");
+// lietus laikā 70 km, sauulainā 140 km
+        int lower = 0, upper = 1;
+    srand(time(0));
+    int saulains = (rand() % (upper - lower + 1)) + lower;
+    if (saulains = 0) {
+        atlikus_bt_km = 70;
+        printf("Laikapstākļi ir lietaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+
+    } else {
+        atlikus_bt_km = 140;
+        printf("Laikapstākļi ir saulaini vai mākoņaini, tava atlikusī baterija ir %d km!", atlikus_bt_km);
+    }
+
+sleep(5);
 karte_plans();
 }
 
@@ -785,4 +956,50 @@ int edit() {
 
 
 
+}
+
+int uzvara () {
+    clearscr();
+     printf("\n -------------------------------------------------------------------------       ");  
+     printf("\n\n ************************ Tu es pieveicis izaicinājumus! ************************ \n  ");  
+     printf("\n -------------------------------------------------------------------------       ");  
+     printf("\n\n Tu ieguvi %u punktus un tev atlika baterija %u kilometriem!                   ", punkti, atlikus_bt_km);  
+     printf("\n        _    ___  ________                                                       ");
+     printf("\n         _-_- |_/|___|___`._                                                     ");
+     printf("\n       _-_-__  / ,-. -|-  ,-.`-.         - _  -  - _<_                           ");  
+     printf("\n          _-_- `( o )----( o )-'        _-_-  _____|___`._                       ");  
+     printf("\n- - - - - - - - - - - - - - - - - - -_-____ / ,-. -|-  ,-.`-. - - - - - - - -   Veidoja: Atis Dubrovskis un Kārlis Ulmis");
+     printf("\n                                       _-_- `( o )----( o )-'                     ");
+     printf("\n                              Paldies par spēlēšanu!                              ");
+
+
+}
+int atved () {
+    clearscr();
+     punkti - 15;
+     printf("\n  Tev beidzās baterija, tapēc tav evakuators ielēja baterija");
+     printf("\n\n  Mīnus 15 punkti, tagad ir %u punkti", punkti);  
+     if(saulains == 1){
+         atlikus_bt_km = 140;
+     }
+    if(saulains == 0){
+         atlikus_bt_km = 70;
+     }
+     
+     sleep(3);
+     karte_plans(); 
+
+
+}
+
+int stasts () {
+        clearscr();
+    printf("Porziņgis ir atbraucis atpakaļ uz Liepāju, bet viņam gribas ēst.\n");
+    printf("Tavs uzdevums ir sāgādāt Porziņģim vairumu ēdienu no restorāniem, kas atrodas viskautkur apkārt Kurzemei un viens Siguldā - slavenais Siguldas kebabs.\n");
+    printf("Bet restorāni netic, ka tu gādā ēdienu Porziņģim un nevēlas dod tev viņa pasūtijumus,\n tāpēc viņi tev jautā viskautkādus jautājumus par Liepāju, lai tu pierādītu, ka tā tiešām esi viņa kurjers.\n");
+    printf("ja uz jautājuma neatbildi pareizi, tad tev būs pašam jāmaksā par ēdienu, ja tev punktu nav, tad tev tos neatņems un ticēs, bet tu nenopelnīsi punktus.");
+    printf("Šis ir rallijs, jo daudzi citi cilvēki dara to pašu ko tu - mēģina Porziņģim piegādāt ēdienu, tāpēc esi atjautīgs un atceries, ka galvenais nav ne tikai ātrums,\n bet precizitāte un pareizi atbildēto kontrolpunktu skaits.\n");   
+    printf("\n                                      Veiksmi un atjautību!");
+    karte_plans();
+    
 }
