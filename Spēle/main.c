@@ -144,7 +144,7 @@ void clearscr() {
 }   
 
 int karte_plans() {
-    if (sakums == bijis && k1 == bijis && k2 == bijis && k3 == bijis && k4 == bijis && k5 == bijis && k6 == bijis && k7 == bijis && k8 == bijis && k9 == bijis && a == bijis && b == bijis && c == bijis && d == bijis && e == bijis) {
+    if (k1 == bijis && k2 == bijis && k3 == bijis && k4 == bijis && k5 == bijis && k6 == bijis && k7 == bijis && k8 == bijis && k9 == bijis && a == bijis && b == bijis && c == bijis && d == bijis && e == bijis) {
         uzvara();
     }
     if (atlikus_bt_km == 0) {
