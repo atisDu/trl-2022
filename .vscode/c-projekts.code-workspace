@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"jautajumi_un_atbildes.h": "c"
+		}
+	}
+}
